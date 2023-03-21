@@ -2,6 +2,9 @@ package com.example.trainerbackend.controller;
 
 import com.example.trainerbackend.entities.User;
 import com.example.trainerbackend.repositories.UserRepository;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +31,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
+//    @JsonIgnore
     public User createUser(@RequestBody User newUser) {
         System.out.println(newUser);
         return userRepository.save(newUser);

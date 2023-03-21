@@ -1,24 +1,28 @@
 package com.example.trainerbackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 @Entity
+@JsonIgnoreProperties("_id")
 public class Exercise {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int _id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID _id;
 
     @ManyToOne
     private Workout workoutId;
     @OneToOne
     private ExerciseType exerciseTypeId;
 
-    public int get_id() {
+    public UUID get_id() {
         return _id;
     }
 
-    public void set_id(int _id) {
+    public void set_id(UUID _id) {
         this._id = _id;
     }
 

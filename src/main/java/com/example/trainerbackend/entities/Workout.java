@@ -1,15 +1,18 @@
 package com.example.trainerbackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
+@JsonIgnoreProperties("_id")
 public class Workout {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer _id;
+    private UUID _id;
     private String workoutName;
     private Date workoutStarted;
     private Date workoutEnded;
@@ -17,11 +20,11 @@ public class Workout {
     @OneToOne
     private User userId;
 
-    public Integer get_id() {
+    public UUID get_id() {
         return _id;
     }
 
-    public void set_id(Integer _id) {
+    public void set_id(UUID _id) {
         this._id = _id;
     }
 
