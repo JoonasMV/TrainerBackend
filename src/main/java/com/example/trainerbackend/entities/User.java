@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import java.util.UUID;
 
 @Entity
-@JsonIgnoreProperties("_id")
+//@JsonIgnoreProperties("_id")
 public class User {
 
     @Id
