@@ -21,7 +21,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("users/{id}")
+    @GetMapping("users/id/{id}")
     @ResponseBody
     public Optional<User> getUserById(@PathVariable UUID id) {
         return userRepository.findById(id);

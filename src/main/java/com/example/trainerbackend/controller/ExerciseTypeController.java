@@ -35,8 +35,8 @@ public class ExerciseTypeController {
     }
 
     @PostMapping("/exerciseTypes")
+    @ResponseBody
     public ExerciseType createExerciseType(@RequestBody ExerciseType newExerciseType) {
-        System.out.println(newExerciseType);
         return exerciseTypeRepository.save(newExerciseType);
     }
 }
