@@ -1,7 +1,9 @@
 package com.example.trainerbackend.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.UUID;
 
@@ -14,8 +16,12 @@ public class ExerciseType {
 
     private String exerciseTypeName;
 
-    @ManyToOne
-    private User userId;
+    public ExerciseType() {
+    }
+
+    public ExerciseType(String exerciseTypeName) {
+        this.exerciseTypeName = exerciseTypeName;
+    }
 
     public UUID get_id() {
         return _id;

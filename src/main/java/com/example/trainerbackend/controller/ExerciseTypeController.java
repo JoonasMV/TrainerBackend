@@ -20,11 +20,18 @@ public class ExerciseTypeController {
         return exerciseTypeRepository.findAll();
     }
 
-    @GetMapping("exerciseTypes/{id}")
+    @GetMapping("exerciseTypes/id/{id}")
     @ResponseBody
     public Optional<ExerciseType> getExerciseTypeById(@PathVariable UUID id) {
         System.out.println(id);
         return exerciseTypeRepository.findById(id);
+    }
+
+    @GetMapping("exerciseTypes/name/{name}")
+    @ResponseBody
+    public Optional<ExerciseType> getExerciseTypeByName(@PathVariable String name) {
+        System.out.println(name);
+        return exerciseTypeRepository.findExerciseTypeByExerciseTypeName(name);
     }
 
     @PostMapping("/exerciseTypes")
